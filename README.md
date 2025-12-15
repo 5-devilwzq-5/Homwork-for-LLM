@@ -14,10 +14,10 @@ BJTU 2025 多模态课程大作业 构建一个本地多模态 AI 智能助手
         <img width="982" height="510" alt="c668d158b409fabe6685a8db72aea409" src="https://github.com/user-attachments/assets/5890b0ec-8f51-4af7-8c42-863e3ad06f8b" />
 
 *   **文件索引**: 支持仅返回相关文件列表，方便快速定位所需文献。
-<img width="1305" height="578" alt="3009f6c44237cb63f847c8c1c9926cea" src="https://github.com/user-attachments/assets/9d3eb67a-9a0f-4ebd-af3a-da73e89dcea9" />
+        <img width="1305" height="578" alt="3009f6c44237cb63f847c8c1c9926cea" src="https://github.com/user-attachments/assets/9d3eb67a-9a0f-4ebd-af3a-da73e89dcea9" />
 
 ### 1.2 智能图像管理
 *   **以文搜图**: 利用多模态图文匹配技术，支持通过自然语言描述（如“海边的日落”）来查找本地图片库中最匹配的图像。
-    <img width="816" height="246" alt="434a23f9f9478dc482df7deb186e2202" src="https://github.com/user-attachments/assets/c56afd94-3fc2-4cd3-a921-f77f17e64653" />
-    <img width="1856" height="212" alt="78f9fee0b326008edf6c4ed96f11c55f" src="https://github.com/user-attachments/assets/a0e1d04d-c8ed-4d4e-b627-59b32153fa43" />
+        <img width="816" height="246" alt="434a23f9f9478dc482df7deb186e2202" src="https://github.com/user-attachments/assets/c56afd94-3fc2-4cd3-a921-f77f17e64653" />
+        <img width="1856" height="212" alt="78f9fee0b326008edf6c4ed96f11c55f" src="https://github.com/user-attachments/assets/a0e1d04d-c8ed-4d4e-b627-59b32153fa43" />
 
