@@ -5,7 +5,8 @@ BJTU 2025 多模态课程大作业 构建一个本地多模态 AI 智能助手
 
 ### 1.1 智能文献管理
 *   **语义搜索**: 支持使用自然语言提问（如“Transformer 的核心架构是什么？”）。系统需基于语义理解返回最相关的论文文件，进阶要求可返回具体的论文片段或页码。
-   
+        <img width="1592" height="583" alt="image" src="https://github.com/user-attachments/assets/4580810f-28ff-4974-91e1-6be7d52d9200" />
+
 *   **自动分类与整理**:
     *   **单文件处理**: 添加新论文时，根据指定的主题（如 "CV, NLP, RL"）自动分析内容，将其归类并移动到对应的子文件夹中。
         <img width="1376" height="157" alt="d7a49462e791374919357df1dd73e093" src="https://github.com/user-attachments/assets/8b7a0cf1-b861-4ca8-845b-42ea9a273231" />
