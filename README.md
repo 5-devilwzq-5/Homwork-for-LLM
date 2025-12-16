@@ -25,67 +25,24 @@ BJTU 2025 多模态课程大作业 构建一个本地多模态 AI 智能助手
 ## 2 实现过程：
 ### 2.1 智能文献管理
 *   **语义搜索**: 支持使用自然语言提问（如“Transformer 的核心架构是什么？”）。系统需基于语义理解返回最相关的论文文件，进阶要求可返回具体的论文片段或页码。
-        
+        <img width="719" height="677" alt="image" src="https://github.com/user-attachments/assets/2b1b5d37-6412-4f1c-af23-b0fef081beab" />
+
 
 *   **自动分类与整理**:
     *   **单文件处理**: 添加新论文时，根据指定的主题（如 "CV, NLP, RL"）自动分析内容，将其归类并移动到对应的子文件夹中。
-        def add_paper(self, pdf_path: str, topics: str = None) -> Dict[str, Any]:
-    """添加单篇论文"""
-    # 提取PDF文本
-    text = extract_text_from_pdf(pdf_path)
-    
-    # 提取标题（第一行）
-    title = text[:100].split('\n')[0].strip()[:50]
-    
-    # 分类（支持自定义主题或默认类别）
-    if topics:
-        categories = [t.strip() for t in topics.split(",")]  # 自定义主题
-    else:
-        categories = PAPER_CATEGORIES  # 默认类别
-    
-    # 使用模型进行分类
-    category = self.model_manager.classify_paper(text, categories)
-    
-    # 生成唯一ID
-    file_hash = hashlib.md5(f"{pdf_path}{os.path.getmtime(pdf_path)}".encode()).hexdigest()
-    
-    # 将文本分块（为语义搜索准备）
-    chunks = split_text(text)
-    
-    # 存储到向量数据库
-    for i, chunk in enumerate(chunks[:20]):
-        chunk_id = f"{file_hash}_{i}"
-        self.vector_db.add(
-            documents=[chunk],
-            metadatas=[{
-                "paper_id": file_hash,
-                "title": title,
-                "category": category,
-                "path": pdf_path,
-                "chunk_index": i
-            }],
-            ids=[chunk_id]
-        )
-    
-    # 复制到分类目录
-    target_dir = PAPERS_DIR / category
-    target_dir.mkdir(exist_ok=True)
-    import shutil
-    target_path = target_dir / Path(pdf_path).name
-    shutil.copy2(pdf_path, target_path)  # 自动归档
-    
-    return {
-        "id": file_hash,
-        "title": title,
-        "category": category,
-        "path": str(target_path),
-        "chunks": len(chunks)
-    }
+        <img width="811" height="908" alt="image" src="https://github.com/user-attachments/assets/8d782282-62c6-43ff-9a02-a2420d5a0e83" />
+        <img width="803" height="44" alt="image" src="https://github.com/user-attachments/assets/358852d0-8f56-4377-aeb7-8544d9c98feb" />
+
     *   **批量整理**: 支持对现有的混乱文件夹进行“一键整理”，自动扫描所有 PDF，识别主题并归档到相应目录。
-        
+        <img width="733" height="355" alt="image" src="https://github.com/user-attachments/assets/64bd812f-6d26-4a14-9df9-5fa783bf1a1a" />
+
+    *   **智能分类**: 将读取到的文件如果没有确定主题自动识别主题并分类。
+        <img width="746" height="911" alt="image" src="https://github.com/user-attachments/assets/ddfb3245-6862-484b-b877-b2520801e5eb" />
+
 
 *   **文件索引**: 支持仅返回相关文件列表，方便快速定位所需文献。
-        
+        <img width="514" height="320" alt="image" src="https://github.com/user-attachments/assets/4fdbaac8-a41a-4dde-b0e3-ef9f978ef81d" />
+
 
 ### 2.2 智能图像管理
 *   **以文搜图**: 利用多模态图文匹配技术，支持通过自然语言描述（如“海边的日落”）来查找本地图片库中最匹配的图像。
